@@ -1,0 +1,28 @@
+#wrap {
+    width:402px;
+    height:874px;
+    padding-left:15px;
+    background-color:mediumaquamarine;
+    border-right:2px double #000;
+}
+#wrap > header {
+    border-bottom:1px solid #000;
+    margin-bottom:30px;
+}
+/* 1행(로고, 검색, 메뉴) */
+#wrap > header >.top {
+    padding: 15px;
+}
+#wrap > header >.top > h1 {}
+#wrap > header >.top > h1 > a {
+    font-size:1.125em;
+    font-weight:700px;
+}
+#wrap > header >.top > .right {}
+#wrap > header >.top > .right > .search_btn {
+    margin-right:8px;
+}
+#wrap > header >.top > .right > .search_btn > .img {}
+#wrap > header >.top > .right > .all_menu_btn  {}
+#wrap > header >.top > .right > .all_menu_btn > .img {}
+/* =======================================================2행 */
