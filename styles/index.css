@@ -5,10 +5,12 @@
 /* 부모선택자 > 자식선택자 {속성:값;} */
 /* 형제선택자 + 인접형제선택자 {속성:값;} */
 /* 형제선택자 ~ 뒤에모든형제들 {속성:값;} */ 
+body {background-color: #f5f5f5;}
 #wrap {
+    position: relative;/* 기준 */
     width:402px;/* css 숫자입력 시 단위 작성하기 */
     height:874px;
-    background-color:aqua;
+    background-color:#fff;
     /* 안쪽여백, 피그마 오토레이아웃 패딩과 동일 */
     /* 안쪽여백 패딩을 4방향 각각 넣는법 */
     /* padding-left:15px;
@@ -29,7 +31,7 @@
     /* border-right:2px solid #000; */
     /* border-right:2px dashed #000; */
     /* border-right:2px dotted #000; */
-    border-right:2px double #000;
+    /* border-right:2px double #000; */
 }
 /* ===========================================header 1행 */
 #wrap > header {
@@ -74,10 +76,12 @@
     font-weight:700; color:#000;
 }
 /* ====================================main */
-#wrap > main {}
+#wrap > main {
+    height: 84%;
+    overflow: auto;/* 내용이 넘친 방향만 자동으로 스크롤을 만들고 나머지는 hidden처리 */
+}
 /* =============================================1행 날짜~할일 목록 리스트 */
 #wrap > main > .to_do_list  {
-    background-color: yellow;
     display: flex;
     flex-flow: column-reverse nowrap;
     gap:/* 2개이상의 자식사이 바깥쪽여백(간격) 적용(margin효과동일) */
@@ -105,14 +109,23 @@
 #wrap > main > .to_do_list > li > .date{}
 #wrap > main > .to_do_list > li > .contents{}
 /* ==============================================글쓰기 버튼 */
+#wrap > main > .write_popup_btn {
+    width: 42px; height: 42px;
+    display: block;
+    /* position: fixed;, right:11px; bottom:50px; */
+    position: absolute; right:11px; bottom:50px;
+}
+#wrap > main > .write_popup_btn > img {width: 100%;}
 #wrap > main > .write_popup {
-    background-color: greenyellow;
+    background-color: #fff;
     display: flex;
     flex-flow: column nowrap;
-    /* align-items: flex-end; 자식 모두에게 주고싶은 경우 */
     width: 295px; height: 230px;
     padding:20px;
-    justify-content:space-between
+    /* align-items: flex-end; 자식 모두에게 주고싶은 경우 */
+    justify-content:space-between;
+    /* 팝업 뛰우기 */
+    position: absolute; left: 10%; top: 25%;
 }
 #wrap > main > .write_popup > .info {
     font-family: 'inter';
@@ -120,7 +133,7 @@
     width: 102px; height: 14px;
 }
 #wrap > main > .write_popup > .write_btn {
-    width: 42px;
+    width: 42px; height: 42px;
     align-self: flex-end; /* 자식한테만 개별로 적용하고 싶은 경우 */
 }
 #wrap > main > .write_popup > .write_btn > img {width:100%;}
